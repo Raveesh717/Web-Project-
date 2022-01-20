@@ -1,0 +1,501 @@
+<html lang="en">
+
+<head>
+    <title>LUMINE ACADEMY</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <style>
+        .signin {
+            width: 100px;
+            height: 30px;
+            background: none;
+            border: 3px solid;
+            color: #6dbad3;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 10px;
+            margin-top: 5%;
+            margin-right: 5%;
+            position: relative;
+        }
+        
+        .signin::before,
+        .signin::after {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 4px;
+            background: #16245d;
+            transform: skewX(50deg);
+            transform: .4s linear;
+        }
+        
+        .signin::before {
+            top: -4px;
+            left: 10%;
+        }
+        
+        .signin::after {
+            bottom: -4px;
+            right: 10%;
+        }
+        
+        .signin:hover::before {
+            left: 80%;
+        }
+        
+        .signin:hover::after {
+            right: 80%;
+        }
+        
+        @media screen and (max-width: 1060px) {
+            #primary {
+                width: 67%;
+            }
+            #secondary {
+                width: 30%;
+                margin-left: 3%;
+            }
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        @media screen and (max-width: 768px) {
+            #primary {
+                width: 100%;
+            }
+            #secondary {
+                width: 100%;
+                margin: 0;
+                border: none;
+            }
+        }
+        
+        html {
+            font-size: 100%;
+        }
+        
+        @media (min-width: 640px) {
+            body {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (min-width:960px) {
+            body {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (min-width:1100px) {
+            body {
+                font-size: 1.0rem;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-image: url('back1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Bookman, serif;
+        }
+        
+        header {
+            text-align: center;
+            background: white;
+        }
+        
+        .menu {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .menu ul {
+            display: inline-flex;
+            list-style: none;
+            color: #87d6f9;
+        }
+        
+        .menu ul li {
+            width: fit-content;
+            margin: auto;
+            padding: 15px;
+        }
+        
+        .menu ul li a {
+            color: #179cd6;
+            text-decoration: none;
+        }
+        
+        .active,
+        .menu ul li:hover {
+            background-color: #16245d;
+            border-radius: 3px;
+        }
+        
+        .sub-menu-1 {
+            display: none;
+        }
+        
+        .menu ul li:hover .sub-menu-1 {
+            display: block;
+            position: relative;
+            background: white;
+            margin-top: 15px;
+            margin-left: -15px;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul {
+            display: block;
+            margin: 50px;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul li {
+            width: 150px;
+            padding: 10px;
+            border-bottom: 1px dotted #16245d;
+            background: transparent;
+            border-radius: 0;
+            text-align: left;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul li a:hover {
+            color: black;
+        }
+        
+        .search {
+            text-align: right;
+            position: absolute;
+            top: 9%;
+            left: 67%;
+            transform: translate(-5%, -45%);
+            width: 500px;
+        }
+        
+        .search input {
+            position: initial;
+            display: inline-block;
+            font-size: 15px;
+            box-sizing: border-box;
+            transform: 5s;
+        }
+        
+        .search input[type="text"] {
+            background: #b1d9f9;
+            width: 340px;
+            height: 40px;
+            border: none;
+            outline: none;
+            padding: 0 25px;
+            border-radius: 25px 0 0 25px;
+        }
+        
+        .search input[type="submit"] {
+            position: relative;
+            border-radius: 0 25px 25px 0;
+            left: -5px;
+            width: 150px;
+            height: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: #6dbad3;
+            color: white;
+        }
+        
+        section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+        }
+        
+        section .box {
+            position: relative;
+            min-width: 1100px;
+            min-height: 550px;
+            display: flex;
+            z-index: 1000;
+        }
+        
+        section .box .boxinfo {
+            position: absolute;
+            top: 40px;
+            width: 350px;
+            height: calc(100% - 80px);
+            background: #0f3959;
+            z-index: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        section .box .boxinfo h2 {
+            color: white;
+            font-size: 24px;
+            font-weight: 500;
+        }
+        
+        section .box .boxinfo .info {
+            position: relative;
+            margin: 20px 0;
+        }
+        
+        section .box .boxinfo .info li {
+            position: relative;
+            list-style: none;
+            display: flex;
+            margin: 20px 0;
+            cursor: pointer;
+            align-items: flex-start;
+        }
+        
+        section .box .boxinfo .info li span:nth-child(1) {
+            width: 30px;
+            min-width: 30px;
+        }
+        
+        section .box .boxinfo .info li span:nth-child(1) img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+        
+        section .box .boxinfo .info li span:nth-child(2) {
+            color: white;
+            margin-left: 10px;
+            font-weight: 300;
+        }
+        
+        section .box .boxinfo .info li span:nth-child(2) img {
+            max-width: 100%;
+        }
+        
+        section .box .contactform {
+            position: absolute;
+            padding: 70px 50px;
+            background: white;
+            width: calc(100% - 150px);
+            margin-left: 150px;
+            padding-left: 250px;
+            height: 100%;
+            box-shadow: 0 50px 0 rgba(0, 0, 0, 0.5);
+        }
+        
+        section .box .contactform h2 {
+            color: #0f3959;
+            font-size: 24px;
+            font-weight: 500;
+        }
+        
+        section .box .contactform .formbox {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-top: 30px;
+        }
+        
+        section .box .contactform .formbox .inputbox {
+            position: relative;
+            margin: 0 0 35px 0;
+        }
+        
+        section .box .contactform .formbox .inputbox.w50 {
+            width: 47%;
+        }
+        
+        section .box .contactform .formbox .inputbox.w100 {
+            width: 100%;
+        }
+        
+        section .box .contactform .formbox .inputbox input,
+        section .box .contactform .formbox .inputbox textarea {
+            width: 100% !important;
+            padding: 5px 0;
+            resize: none;
+            font-size: 18px;
+            font-weight: 300;
+            color: #333;
+            border: none;
+            border-bottom: 1px solid #777;
+            outline: none;
+        }
+        
+        section .box .contactform .formbox .inputbox textarea {
+            min-height: 120px;
+        }
+        
+        section .box .contactform .formbox .inputbox span {
+            position: absolute;
+            left: 0;
+            font-size: 18px;
+            font-weight: 300;
+            color: #333;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+        
+        section .box .contactform .formbox .inputbox input:focus~span,
+        section .box .contactform .formbox .inputbox textarea:focus~span,
+        section .box .contactform .formbox .inputbox input:valid~span,
+        section .box .contactform .formbox .inputbox textarea:valid~span {
+            transform: translateY(-20px);
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #179cd6;
+        }
+        
+        section .box .contactform .formbox .inputbox input[type="submit"] {
+            position: relative;
+            cursor: pointer;
+            background-color: #16245d;
+            color: white;
+            border: none;
+            max-width: 150px;
+            padding: 12px;
+        }
+        
+        section .box .contactform .formbox .inputbox input[type="submit"]:hover {
+            background: #179cd6;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <script src="script.js"></script>
+        <a href="home page.html"><img alt="IGNIS VIBRANTE LUMINE ACADEMY" src="CSE.jpg"></a>
+
+        <div class="menu">
+            <ul>
+                <li><a href="home page.html">HOME</a></li>
+                <li><a href="here.html">COURSES</a>
+
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="maths.html">MATHEMATICS</a></li>
+                            <li><a href="english.html">ENGLISH</a></li>
+                            <li><a href="french.html">FRENCH</a></li>
+                            <li><a href="physics.html">PHYSICS</a></li>
+                            <li><a href="chemistry.html">CHEMISTRY</a></li>
+                            <li><a href="biology.html">BIOLOGY</a></li>
+                        </ul>
+
+                    </div>
+                </li>
+                <li class="active"><a href="contact.html">CONTACT</a></li>
+
+            </ul>
+        </div>
+
+    </header>
+    <div class="search">
+        <form>
+            <input type="text" name="" placeholder="Type...">
+            <input type="submit" name="" value="Search">
+        </form>
+        <button class="signin">
+            <a href="signin.html" style="text-decoration: none; color:#16245d;">
+            Sign In
+        </a>
+        </button>
+    </div>
+
+    <section>
+        <div class="box">
+            <div class="boxinfo">
+                <div>
+                    <h2>Contact Us</h2>
+                    <ul class="info">
+                        <li>
+                            <span><img src="location.png" alt=""></span>
+                            <span>
+                            Saint Antoine Road <br>
+                            Camp Fouquereaux Phoenix<br>
+                            Mauritius
+                        </span>
+                        </li>
+                        <li>
+                            <span><img src="mail.png" alt=""></span>
+                            <span>
+                            lumineacademy@gmail.com
+                        </span>
+                        </li>
+                        <li>
+                            <span><img src="phone.png" alt=""></span>
+                            <span>
+                            +23057170909
+                        </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <form action="actionpage.php" method="POST" onsubmit="return validateContact()">
+                <div class="contactform">
+                    <h2>We are here to help you in your studies.Send a message.</h2>
+                    <div class="formbox">
+                        <div class="inputbox w50">
+                            <input id="fname" type="text" name="firstname" required>
+                            <span>First name</span>
+                        </div>
+                        <div class="inputbox w50">
+                            <input id="lname" type="text" name="lastname" required>
+                            <span>Last name</span>
+                        </div>
+                        <div class="inputbox w50">
+                            <input id="email" type="text" name="email" required>
+                            <span>Email address</span>
+                        </div>
+                        <div class="inputbox w50">
+                            <input id="phone" type="number" name="phone" required>
+                            <span>Phone number</span>
+                        </div>
+                        <div class="inputbox w50">
+                            <input type="text" name="subject" required>
+                            <span>Subject</span>
+                        </div>
+                        <div class="inputbox w100">
+                            <textarea name="message" required> </textarea>
+                            <span>Write your message here...</span>
+                        </div>
+                        <div class="inputbox w100">
+                            <input type="submit" value="send ">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+
+</html>

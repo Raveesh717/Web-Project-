@@ -1,0 +1,379 @@
+<html lang="en">
+
+<head>
+    <title>LUMINE ACADEMY</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <style>
+        .signin {
+            width: 100px;
+            height: 30px;
+            background: none;
+            border: 3px solid;
+            color: #6dbad3;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 10px;
+            margin-top: 5%;
+            margin-right: 5%;
+            position: relative;
+        }
+        
+        .signin::before,
+        .signin::after {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 4px;
+            background: #16245d;
+            transform: skewX(50deg);
+            transform: .4s linear;
+        }
+        
+        .signin::before {
+            top: -4px;
+            left: 10%;
+        }
+        
+        .signin::after {
+            bottom: -4px;
+            right: 10%;
+        }
+        
+        .signin:hover::before {
+            left: 80%;
+        }
+        
+        .signin:hover::after {
+            right: 80%;
+        }
+        
+        @media screen and (max-width: 1060px) {
+            #primary {
+                width: 67%;
+            }
+            #secondary {
+                width: 30%;
+                margin-left: 3%;
+            }
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        @media screen and (max-width: 768px) {
+            #primary {
+                width: 100%;
+            }
+            #secondary {
+                width: 100%;
+                margin: 0;
+                border: none;
+            }
+        }
+        
+        html {
+            font-size: 100%;
+        }
+        
+        @media (min-width: 640px) {
+            body {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (min-width:960px) {
+            body {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (min-width:1100px) {
+            body {
+                font-size: 1.0rem;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        header {
+            text-align: center;
+            background: white;
+        }
+        
+        body {
+            background-image: url('back1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Bookman, serif;
+        }
+        
+        .menu {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .menu ul {
+            display: inline-flex;
+            list-style: none;
+            color: #87d6f9;
+        }
+        
+        .menu ul li {
+            width: fit-content;
+            margin: auto;
+            padding: 15px;
+        }
+        
+        .menu ul li a {
+            color: #179cd6;
+            text-decoration: none;
+        }
+        
+        .active,
+        .menu ul li:hover {
+            background-color: #16245d;
+            border-radius: 3px;
+        }
+        
+        .sub-menu-1 {
+            display: none;
+        }
+        
+        .menu ul li:hover .sub-menu-1 {
+            display: block;
+            position: relative;
+            background: white;
+            margin-top: 15px;
+            margin-left: -15px;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul {
+            display: block;
+            margin: 50px;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul li {
+            width: 150px;
+            padding: 10px;
+            border-bottom: 1px dotted #16245d;
+            background: transparent;
+            border-radius: 0;
+            text-align: left;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul li a:hover {
+            color: black;
+        }
+        
+        .search {
+            text-align: right;
+            position: absolute;
+            top: 9%;
+            left: 67%;
+            transform: translate(-5%, -45%);
+            width: 500px;
+        }
+        
+        input {
+            position: initial;
+            display: inline-block;
+            font-size: 15px;
+            box-sizing: border-box;
+            transform: 5s;
+        }
+        
+        input[type="text"] {
+            background: #b1d9f9;
+            width: 340px;
+            height: 40px;
+            border: none;
+            outline: none;
+            padding: 0 25px;
+            border-radius: 25px 0 0 25px;
+        }
+        
+        input[type="submit"] {
+            position: relative;
+            border-radius: 0 25px 25px 0;
+            left: -5px;
+            width: 150px;
+            height: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: #6dbad3;
+            color: white;
+        }
+        
+        input[type="submit"]:hover {
+            background: #16245d;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        li {
+            display: inline-block;
+            width: 255px;
+            padding-bottom: 10px;
+            margin: 10px;
+        }
+        
+        .math {
+            background-image: url("math.jpg");
+            background-size: 100%;
+            width: 255px;
+            display: inline-block;
+            height: 255px;
+            margin: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .bio {
+            background-image: url("bio.jpg");
+            background-size: 100%;
+            width: 255px;
+            display: inline-block;
+            height: 255px;
+            margin: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .fr {
+            background-image: url("fr.jpg");
+            background-size: 100%;
+            width: 255px;
+            display: inline-block;
+            height: 255px;
+            margin: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .chem {
+            background-image: url("chem.jpg");
+            background-size: 100%;
+            width: 255px;
+            display: inline-block;
+            height: 255px;
+            margin: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .eng {
+            background-image: url("eng.jpg");
+            width: 255px;
+            background-size: 100%;
+            display: inline-block;
+            height: 255px;
+            padding-bottom: 10px;
+            margin-left: 225%;
+        }
+        
+        .phy {
+            background-image: url("phy.jpg");
+            background-size: 100%;
+            width: 255px;
+            display: inline-block;
+            height: 255px;
+            margin: 10px;
+            padding-bottom: 10px;
+        }
+        
+        header {
+            text-align: center;
+            background: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <a href="home page.html"><img alt="LUMINE ACADEMY" src="CSE.jpg"></a>
+
+        <div class="menu">
+            <ul>
+                <li><a href="home page.html">HOME</a></li>
+                <li class="active"><a href="here.html">COURSES</a>
+
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="maths.html">MATHEMATICS</a></li>
+                            <li><a href="english.html">ENGLISH</a></li>
+                            <li><a href="french.html">FRENCH</a></li>
+                            <li><a href="physics.html">PHYSICS</a></li>
+                            <li><a href="chemistry.html">CHEMISTRY</a></li>
+                            <li><a href="biology.html">BIOLOGY</a></li>
+                        </ul>
+
+                    </div>
+                </li>
+                <li><a href="contact.html">CONTACT</a></li>
+
+            </ul>
+        </div>
+
+    </header>
+    <div class="search">
+        <form>
+            <input type="text" name="" placeholder="Type...">
+            <input type="submit" name="" value="Search">
+        </form>
+        <button class="signin">
+                <a href="signin.html" style="text-decoration: none; color:#16245d;">
+                Sign In
+            </a>
+            </button>
+    </div>
+
+
+
+
+    <main>
+        <h1 style="text-align: center;  background: white;height:100px;
+        color:#03a9f4; margin-top: 20px; ">Which subjects will you conquer?</h1>
+        <ul>
+            <li>
+                <a href="maths.html" class="math"></a>
+            </li>
+            <li>
+                <a href="biology.html" class="bio"></a>
+
+            </li>
+            <li>
+                <a href="french.html" class="fr"></a>
+            </li>
+            <li>
+                <a href="physics.html" class="phy"></a>
+            </li>
+            <li>
+                <a href="chemistry.html" class="chem"></a>
+            </li>
+            <li>
+                <a href="english.html" class="eng"></a>
+            </li>
+        </ul>
+    </main>
+
+</body>
+<footer>
+
+    <h5>Copyright &copy; LUMINE ACADEMY. All rights reserved.</h5>
+</footer>
+
+</html>

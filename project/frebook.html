@@ -1,0 +1,387 @@
+<html lang="en">
+
+<head>
+    <title>LUMINE ACADEMY</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <style>
+        .signin {
+            width: 100px;
+            height: 30px;
+            background: none;
+            border: 3px solid;
+            color: #6dbad3;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 10px;
+            margin-top: 5%;
+            margin-right: 5%;
+            position: relative;
+        }
+        
+        .signin::before,
+        .signin::after {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 4px;
+            background: #16245d;
+            transform: skewX(50deg);
+            transform: .4s linear;
+        }
+        
+        .signin::before {
+            top: -4px;
+            left: 10%;
+        }
+        
+        .signin::after {
+            bottom: -4px;
+            right: 10%;
+        }
+        
+        .signin:hover::before {
+            left: 80%;
+        }
+        
+        .signin:hover::after {
+            right: 80%;
+        }
+        
+        @media screen and (max-width: 1060px) {
+            #primary {
+                width: 67%;
+            }
+            #secondary {
+                width: 30%;
+                margin-left: 3%;
+            }
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        @media screen and (max-width: 768px) {
+            #primary {
+                width: 100%;
+            }
+            #secondary {
+                width: 100%;
+                margin: 0;
+                border: none;
+            }
+        }
+        
+        html {
+            font-size: 100%;
+        }
+        
+        @media (min-width: 640px) {
+            body {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (min-width:960px) {
+            body {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (min-width:1100px) {
+            body {
+                font-size: 1.0rem;
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        header {
+            text-align: center;
+            background: white;
+        }
+        
+        body {
+            background-image: url('back1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Bookman, serif;
+        }
+        
+        .menu {
+            background-color: white;
+            text-align: center;
+        }
+        
+        .menu ul {
+            display: inline-flex;
+            list-style: none;
+            color: #87d6f9;
+        }
+        
+        .menu ul li {
+            width: fit-content;
+            margin: auto;
+            padding: 15px;
+        }
+        
+        .menu ul li a {
+            color: #179cd6;
+            text-decoration: none;
+        }
+        
+        .menu ul li:hover {
+            background-color: #16245d;
+            border-radius: 3px;
+        }
+        
+        .sub-menu-1 {
+            display: none;
+        }
+        
+        .menu ul li:hover .sub-menu-1 {
+            display: block;
+            position: relative;
+            background: white;
+            margin-top: 15px;
+            margin-left: -15px;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul {
+            display: block;
+            margin: 50px;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul li {
+            width: 150px;
+            padding: 10px;
+            border-bottom: 1px dotted #16245d;
+            background: transparent;
+            border-radius: 0;
+            text-align: left;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .menu ul li:hover .sub-menu-1 ul li a:hover {
+            color: black;
+        }
+        
+        .search {
+            text-align: right;
+            position: absolute;
+            top: 9%;
+            left: 67%;
+            transform: translate(-5%, -45%);
+            width: 500px;
+        }
+        
+        input {
+            position: initial;
+            display: inline-block;
+            font-size: 15px;
+            box-sizing: border-box;
+            transform: 5s;
+        }
+        
+        input[type="text"] {
+            background: #b1d9f9;
+            width: 340px;
+            height: 40px;
+            border: none;
+            outline: none;
+            padding: 0 25px;
+            border-radius: 25px 0 0 25px;
+        }
+        
+        input[type="submit"] {
+            position: relative;
+            border-radius: 0 25px 25px 0;
+            left: -5px;
+            width: 150px;
+            height: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: #6dbad3;
+            color: white;
+        }
+        
+        input[type="submit"]:hover {
+            background: #16245d;
+        }
+        
+        header {
+            text-align: center;
+            background: white;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        li {
+            display: inline-block;
+            width: 255px;
+            padding-bottom: 10px;
+            margin: 10px;
+        }
+        
+        .nav-con {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            transform: translate(-50%, -50%);
+            display: flex;
+            position: relative;
+            top: 33%;
+            left: 50%;
+            margin: 0;
+            padding: 0;
+            background: white;
+            height: 10%;
+            background-size: 100%;
+        }
+        
+        .nav-con li a {
+            position: absolute;
+            display: block;
+            text-transform: uppercase;
+            color: #6dbad3;
+            font-weight: bold;
+            transition: .5s;
+            margin-left: 26.5%;
+        }
+        
+        .nav-con li a:hover {
+            color: #16245d;
+        }
+        
+        .nav-con li a::after {
+            width: 100%;
+            height: 100%;
+            background: #e1eec3;
+            background: -webkit-linear-gradient(to right, #f05053, #e1eec3);
+            background: linear-gradient(to right, #f05053, #e1eec3);
+            transform: scale(0);
+            transition: .5s;
+            z-index: -1;
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 0;
+        }
+        
+        .nav-con li a:hover::after {
+            transform: scale(1);
+        }
+        
+        .ebooka {
+            grid-area: ebooka;
+            background-image: url("ebook21.jpg");
+            width: 255px;
+            height: 255px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-gap: 0;
+            grid-template-areas: 'ebooka';
+        }
+        
+        .gallery a {
+            height: 15rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10%;
+            margin-left: 42%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <a href="home page.html"><img alt="LUMINE ACADEMY" src="CSE.jpg"></a>
+
+        <div class="menu">
+            <ul>
+                <li><a href="home page.html">HOME</a></li>
+                <li><a href="here.html">COURSES</a>
+
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="maths.html">MATHEMATICS</a></li>
+                            <li><a href="english.html">ENGLISH</a></li>
+                            <li><a href="french.html">FRENCH</a></li>
+                            <li><a href="physics.html">PHYSICS</a></li>
+                            <li><a href="chemistry.html">CHEMISTRY</a></li>
+                            <li><a href="biology.html">BIOLOGY</a></li>
+                        </ul>
+
+                    </div>
+                </li>
+                <li><a href="contact.html">CONTACT</a></li>
+
+            </ul>
+        </div>
+
+    </header>
+    <div class="search">
+        <form>
+            <input type="text" name="" placeholder="Type...">
+            <input type="submit" name="" value="Search">
+        </form>
+        <button class="signin">
+            <a href="signin.html" style="text-decoration: none; color:#16245d;">
+            Sign In
+        </a>
+        </button>
+    </div>
+
+    <main>
+        <h1 style="text-align: center;  background: white;height:150px;
+        color:#03a9f4; margin-top: 20px; ">FRENCH</h1>
+        <ul class="nav-con">
+            <li> <a href="frvideo.html" style="text-decoration: none; ">FRENCH VIDEO</a></li>
+            <li><a href="frebook.html" style="text-decoration: none; ">FRENCH EBOOKS</a></li>
+            <li><a href="frex.html" style="text-decoration: none; ">FRENCH EXERCISES</a></li>
+
+        </ul>
+
+        <div class="container">
+            <div class="gallery">
+                <a href="https://www.decitre.fr/ebook/bonnes-affaires/ebooks-gratuits.html" target="_blank" class="ebooka">
+                </a>
+                <! [105] >
+
+            </div>
+        </div>
+    </main>
+
+</body>
+<footer style="margin-top: 50%;">
+
+    <h5>Copyright &copy; LUMINE ACADEMY. All rights reserved.</h5>
+</footer>
+
+</html>
